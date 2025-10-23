@@ -22,15 +22,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Set Node first WITHOUT pnpm cache (the cache step invokes pnpm if present)
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
-          cache-dependency-path: pnpm-lock.yaml
 
+      # Install pnpm globally so later steps and caching don't fail
       - name: Install pnpm
         run: npm i -g pnpm@9
+
+      # Optional: Restore pnpm store cache manually (avoid setup-node pnpm cache auto-run)
+      - name: Get pnpm store directory
+        id: pnpm-store
+        run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-store.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
