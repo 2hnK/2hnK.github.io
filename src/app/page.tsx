@@ -22,7 +22,7 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
-                text={`안녕하세요, 저는 ${DATA.name}입니다.`}
+                text={`안녕하세요`}
               />
               <BlurFadeText
                 className="max-w-[600px] md:text-xl whitespace-pre-line"

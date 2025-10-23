@@ -8,7 +8,7 @@ export const DATA = {
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "안녕하세요.\n백엔드 개발과 AI기반 서비스를 설계하는 개발자 지망생입니다.",
+    "저는 김지훈입니다.\n백엔드 개발과 AI기반 서비스를 설계하는 개발자 지망생입니다.",
   summary:
     "백엔드 개발과 AI기반 서비스를 설계하는 개발자 지망생입니다.한밭대학교 컴퓨터공학과에서 백엔드 시스템, 데이터베이스, 인공지능을 중심으로 공부하며, Spring Boot와 FastAPI로 여러 프로젝트를 직접 설계하고 구현했습니다.특히 LangChain과 LLM을 활용한 AI 서비스, PostgreSQL 기반의 시스템을 개발했으며, 기술을 통해 사람의 효율적인 성장과 문제 해결을 돕는 방향을 탐구하고 있습니다.",
   avatarUrl: "/jh.jpg",
